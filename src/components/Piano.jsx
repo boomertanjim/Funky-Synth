@@ -14,7 +14,7 @@ const Piano = () => {
             {whiteNotes[key - 1]}
           </button>
         ))}
-        {blackKeys.map((key, j) => (
+        {blackKeys.map((key) => (
           <button
             key={key}
             style={{ left: `${28 + key * 48}px` }}
