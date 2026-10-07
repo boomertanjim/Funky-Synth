@@ -1,7 +1,7 @@
 import { useState, useRef } from "react";
 
-const Knobs = () => {
-  const [value, setValue] = useState(50);
+const Knobs = ({ title, val, onChange }) => {
+  const [value, setValue] = useState(val);
   const dragging = useRef(false);
   const startY = useRef(0);
   const startVal = useRef(0);
@@ -24,6 +24,7 @@ const Knobs = () => {
     const deltaY = startY.current - i.clientY;
     const newVal = Math.min(100, Math.max(0, startVal.current + deltaY));
     const currentAng = ang + (newVal / 100) * (ang * 2);
+    onChange(title, newVal);
 
     if (knob.current) {
       knob.current.style.transform = `rotate(${currentAng}deg)`;
@@ -70,7 +71,7 @@ const Knobs = () => {
           <div className="absolute top-0.5 w-0.75 h-3 bg-white rounded-full"></div>
         </div>
       </div>
-      <span className="text-xs">Attack</span>
+      <span className="text-xs">{title}</span>
     </div>
   );
 };
