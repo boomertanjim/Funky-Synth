@@ -1,5 +1,5 @@
 const Knobs = () => {
-  return <div>Knobs</div>;
+  return <div className="col-span-5">Knobs</div>;
 };
 
 export default Knobs;
